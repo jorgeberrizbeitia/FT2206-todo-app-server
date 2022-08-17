@@ -3,8 +3,10 @@ const Todo = require("../models/Todo.model")
 
 // todas nuestras rutas de ToDos
 
+const isAuthenticated = require("../middlewares/isAuthenticated")
+
 // GET "/api/todos" => enviar los titulos de los ToDos
-router.get("/", async (req, res, next) => {
+router.get("/", isAuthenticated, async (req, res, next) => {
   try {
     const allTodoTitles = await Todo.find().select("title")
     res.json(allTodoTitles) // envia la respuesta de la BD al Frontend
