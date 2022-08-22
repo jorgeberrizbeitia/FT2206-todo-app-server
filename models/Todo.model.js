@@ -8,6 +8,8 @@ const todoSchema = new Schema(
     },
     description: String,
     isUrgent: Boolean,
+    image: String,
+    price: Number,
   },
   {
     timestamps: true,
